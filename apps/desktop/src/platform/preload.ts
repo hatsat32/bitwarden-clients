@@ -1,7 +1,9 @@
 import { ipcRenderer } from "electron";
 
 import { DeviceType, ThemeType } from "@bitwarden/common/enums";
+import { EncString } from "@bitwarden/common/platform/models/domain/enc-string";
 
+import { EncryptedMessageResponse, UnencryptedMessageResponse } from "../models/native-messaging";
 import { isDev, isWindowsStore } from "../utils";
 
 const storage = {
@@ -50,6 +52,15 @@ export default {
         callback(message);
       }
     });
+  },
+
+  sendNativeMessagingReply: (
+    message:
+      | EncryptedMessageResponse
+      | UnencryptedMessageResponse
+      | { appId: string; command?: string; sharedSecret?: string; message?: EncString }
+  ) => {
+    ipcRenderer.send("nativeMessagingReply", message);
   },
 
   storage,
