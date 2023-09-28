@@ -42,6 +42,8 @@ export default {
   getLanguageFile: (formattedLocale: string): Promise<object> =>
     ipcRenderer.invoke("getLanguageFile", formattedLocale),
 
+  isWindowVisible: (): Promise<boolean> => ipcRenderer.invoke("windowVisible"),
+
   sendMessage: (message: { command: string } & any) =>
     ipcRenderer.send("messagingService", message),
   onMessage: (callback: (message: { command: string } & any) => void) => {
