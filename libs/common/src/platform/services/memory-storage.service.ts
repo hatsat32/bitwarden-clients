@@ -1,7 +1,7 @@
 import { AbstractMemoryStorageService } from "../abstractions/storage.service";
 
 export class MemoryStorageService extends AbstractMemoryStorageService {
-  private store = new Map<string, unknown>();
+  protected store = new Map<string, unknown>();
 
   get<T>(key: string): Promise<T> {
     if (this.store.has(key)) {
