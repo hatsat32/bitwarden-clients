@@ -164,7 +164,7 @@
     "argon2": "0.31.0",
     "argon2-browser": "1.18.0",
     "big-integer": "1.6.51",
-    "bootstrap": "4.6.0",
+    "bootstrap": "4.6.2",
     "braintree-web-drop-in": "1.40.0",
     "bufferutil": "4.0.7",
     "chalk": "4.1.2",
